@@ -1,7 +1,6 @@
 package controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 import play.libs.Json;
 import play.mvc.*;
 
@@ -20,6 +19,12 @@ public class HomeController extends Controller {
      * <code>GET</code> request with a path of <code>/</code>.
      */
     public Result index() {
+        Map<String, String> playerHeroesMap = getPlayerHeroesMap();
+        JsonNode content = Json.toJson(playerHeroesMap);
+        return ok(content);
+    }
+
+    private Map<String, String> getPlayerHeroesMap() {
         Map<String, String> playerMap = new HashMap<>();
 
         List<String> players = new ArrayList<>();
@@ -40,8 +45,7 @@ public class HomeController extends Controller {
         for (String player : players) {
             heroes.remove(assignHeroes(player, heroes, playerMap));
         }
-        JsonNode content = Json.toJson(playerMap);
-        return ok(content);
+        return playerMap;
     }
 
     private String assignHeroes(String player, List<String> heroes, Map<String, String> playerMap) {
