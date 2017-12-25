@@ -18,3 +18,4 @@ target
 tmp
 dist
 *.iml
+.DS_Store
