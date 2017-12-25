@@ -1,1 +1,1 @@
-web: target/universal/stage/bin/hero_chooser -Dhttp.port=${PORT}
+web: target/universal/stage/bin/hero-chooser -Dhttp.port=${PORT}

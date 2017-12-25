@@ -1,4 +1,4 @@
-name := "hero_chooser"
+name := """hero-chooser"""
 organization := "alexescg.com.github"
 
 version := "1.0-SNAPSHOT"
